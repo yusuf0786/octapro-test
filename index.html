@@ -9,8 +9,12 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Bootstrap-select CSS -->
+    <link rel="stylesheet" href="./node_modules/bootstrap-select/dist/css/bootstrap-select.min.css">
     <!-- Bootstrp JS -->
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrp-select JS -->
+    <script src="./node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 
     <!-- CSS file link -->
     <link rel="stylesheet" href="./assets/css/style.css">
@@ -40,7 +44,7 @@
                                 <div class="card-body">
                                     <div class="octapro-table-top d-flex align-items-start justify-content-between">
 
-                                        <div class="octapro-dropdown">
+                                        <!-- <div class="octapro-dropdown">
                                             <label>
                                                 <select class="octapro-selector" id="perPageDropdown">
                                                     <option value="5" selected="selected">5</option>
@@ -51,19 +55,19 @@
                                                 </select>
                                                 entries per page
                                             </label>
-                                        </div>
+                                        </div> -->
 
                                         <div class="octapro-dropdown">
-                                            <select class="octapro-selector" id="filterByCompanyArea">
-                                                <option value="default" selected="selected">Filter By Company Area</option>
+                                            <select class="octapro-selector selectpickerxyz" id="filterByCompanyArea" multiple data-live-search="true">
+                                                <option value="" selected="selected">Filter By Company Area</option>
                                                 <option value="VARACHHA">VARACHHA</option>
                                                 <option value="ADAJAN">ADAJAN</option>
                                             </select>
                                         </div>
 
                                         <div class="octapro-dropdown">
-                                            <select class="octapro-selector" id="filterByServiceType">
-                                                <option value="default" selected="selected">Filter By Service Type</option>
+                                            <select class="octapro-selector selectpickerxyz" id="filterByServiceType" multiple data-live-search="true">
+                                                <option value="" selected="selected">Filter By Service Type</option>
                                                 <option value="FREE">FREE</option>
                                                 <option value="CHARGEABLE">CHARGEABLE</option>
                                             </select>
@@ -143,6 +147,9 @@
     
 
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrp-select JS -->
+    <script src="./node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+
     <script src="./node_modules/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="./js/script.js"></script>
 </body>
