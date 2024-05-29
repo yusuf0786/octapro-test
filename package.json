@@ -4,7 +4,9 @@
   "type": "module",
   "main": "js/script.js",
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "jquery-ui": "^1.13.3",
+    "jquery-ui-multiselect-widget": "^3.0.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

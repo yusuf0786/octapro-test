@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!--  -->
+    <link rel="stylesheet" href="./node_modules/jquery-ui-multiselect-widget/css/jquery.multiselect.css">
+
+    <!--  -->
+    <link rel="stylesheet" href="./node_modules/jquery-ui/dist/themes/base/jquery-ui.min.css">
+    <!-- <link rel="stylesheet" href="./node_modules/jquery-ui/dist/themes/"> -->
+
     <!-- jQuery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!--  -->
+    <script src="./node_modules/jquery-ui/dist/jquery-ui.min.js"></script>
+    <!--  -->
+    <script src="./node_modules/jquery-ui-multiselect-widget/src/jquery.multiselect.js"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -23,14 +34,14 @@
 <body>
 
     <div class="container-fluid g-0">
-        <div class="row g-0">
-            <aside class="col-3 octapro-sidebar-container position-relative">
+        <div class="row g-0 d-flex align-items-start flex-nowrap">
+            <aside class="octapro-sidebar-container">
                 <div class="octapro-sidebar">
                     <div class="octapro-logo">Octapro Solutions</div>
                 </div>
             </aside>
-            <div class="col-9 d-flex flex-column octapro-header-container">
-                <div class="octapro-wrapper octapro-header-wrapper mb-auto">
+            <div class="d-flex flex-column octapro-header-container">
+                <div class="common-wrapper octapro-header-wrapper mb-auto">
                     <header class="header">
                         <div class="octapro-menu-toggle">
                             <span class="bar"></span>
@@ -59,64 +70,65 @@
 
                                         <div class="octapro-dropdown">
                                             <select class="octapro-selector selectpickerxyz" id="filterByCompanyArea" multiple data-live-search="true">
-                                                <option value="" selected="selected">Filter By Company Area</option>
-                                                <option value="VARACHHA">VARACHHA</option>
+                                                <option value="VARACHHA" selected="selected">VARACHHA</option>
                                                 <option value="ADAJAN">ADAJAN</option>
                                             </select>
                                         </div>
 
                                         <div class="octapro-dropdown">
                                             <select class="octapro-selector selectpickerxyz" id="filterByServiceType" multiple data-live-search="true">
-                                                <option value="" selected="selected">Filter By Service Type</option>
-                                                <option value="FREE">FREE</option>
+                                                <option value="FREE" selected="selected">FREE</option>
                                                 <option value="CHARGEABLE">CHARGEABLE</option>
                                             </select>
                                         </div>
 
                                         <div class="date-filter-container d-flex align-items-start">
-                                            <input type="date" id="startDate" placeholder="Start Date">
-                                            <input type="date" id="endDate" placeholder="End Date">
+                                            <input class="octapro-input" type="date" id="startDate" placeholder="Start Date">
+                                            <input class="octapro-input" type="date" id="endDate" placeholder="End Date">
                                         </div>
 
-                                        <input type="text" placeholder="Search..." id="tableSearch" name="tableSearch">
+                                        <input type="text" class="octapro-input" placeholder="Search..." id="tableSearch" name="tableSearch">
 
                                     </div>
-                                    <table class="table octapro-table">
-                                        <thead>
-                                            <tr>
-                                                <th>Id</th>
-                                                <th>Complaint No.</th>
-                                                <th>Complaint Date</th>
-                                                <th>Invoice Type</th>
-                                                <th>Company Name</th>
-                                                <th>Company Add.</th>
-                                                <th>Company Area</th>
-                                                <th>Company Mobile</th>
-                                                <th>Engineer Name</th>
-                                                <th>Service Type</th>
-                                                <th>Service Date</th>
-                                                <th>Problem</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!-- <tr data-index="0" data-date="">
-                                                <td>647</td>
-                                                <td>516</td>
-                                                <td>2024-05-27</td>
-                                                <td>COMPLAIN</td>
-                                                <td>KISHAN KUMAR</td>
-                                                <td>12 MOHAN BAG  RV ROAD</td>
-                                                <td data-company-area>KATARGAM</td>
-                                                <td>9658743652</td>
-                                                <td>octa</td>
-                                                <td data-service-type>FREE</td>
-                                                <td>2024-05-27</td>
-                                                <td>null</td>
-                                                <td>COMPLETED</td>
-                                            </tr> -->
-                                        </tbody>
-                                    </table>
+
+                                    <div class="octapro-table-middle">
+                                        <table class="table octapro-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Id</th>
+                                                    <th>Complaint No.</th>
+                                                    <th>Complaint Date</th>
+                                                    <th>Invoice Type</th>
+                                                    <th>Company Name</th>
+                                                    <th>Company Add.</th>
+                                                    <th>Company Area</th>
+                                                    <th>Company Mobile</th>
+                                                    <th>Engineer Name</th>
+                                                    <th>Service Type</th>
+                                                    <th>Service Date</th>
+                                                    <th>Problem</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- <tr data-index="0" data-date="">
+                                                    <td>647</td>
+                                                    <td>516</td>
+                                                    <td>2024-05-27</td>
+                                                    <td>COMPLAIN</td>
+                                                    <td>KISHAN KUMAR</td>
+                                                    <td>12 MOHAN BAG  RV ROAD</td>
+                                                    <td data-company-area>KATARGAM</td>
+                                                    <td>9658743652</td>
+                                                    <td>octa</td>
+                                                    <td data-service-type>FREE</td>
+                                                    <td>2024-05-27</td>
+                                                    <td>null</td>
+                                                    <td>COMPLETED</td>
+                                                </tr> -->
+                                            </tbody>
+                                        </table>
+                                    </div>
 
                                     <div class="octapro-table-btm d-flex align-items-start justify-content-between">
 
@@ -139,7 +151,9 @@
                     </main>
                 </div>
                 <footer class="">
-                    Footer
+                    <div class="common-wrapper">
+                        Footer
+                    </div>
                 </footer>
             </div>
         </div>

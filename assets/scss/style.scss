@@ -43,6 +43,7 @@ $bodyBGColor: #F4F7FA;
 }
 
 html {
+    position: relative;
     width: 100%;
     min-height: 100vh;
     font-size: 14px;
@@ -81,20 +82,29 @@ header {
     z-index: 9999;
 }
 
-input {
+.octapro-input {
     @include inputProps(300px);
 }
 
 .octapro-sidebar-container,
 .octapro-header-container {
-    transition: width 0.3s;
+    transition: width 0.3s, max-width 0.3s;
     transition-timing-function: ease-in-out;
 
     min-height: 100vh;
     height: 100%;
 }
 
+.octapro-sidebar-container {
+    max-width: 340px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+}
+
 .octapro-header-container {
+    max-width: calc(100% - 340px);
+    width: 100%;
     .common-wrapper {
         transition: padding 0.3s;
     }
@@ -105,26 +115,13 @@ input {
     padding: 0 2rem;
 }
 
-.octapro-wrapper {
-    width: 100%;
-    padding: 0 2rem 0 0;
-}
-
 .octapro-sidebar {
-    position: fixed;
-    top: 0;
+    width: 100%;
     min-height: 100vh;
     height: 100%;
     padding: 0 1.375rem;
-
     background: #fff;
-    max-width: 340px;
-    width: 95%;
-    bottom: 0;
-    z-index: 1026;
-    overflow: hidden;
     box-shadow: 0px 0px 24px rgba(27, 46, 94, 0.05);
-    // border-right: none;
 
     .octapro-logo {
         padding: 1.25rem 0;
@@ -174,13 +171,18 @@ input {
         max-width: 200px;
     }
 }
+
+.octapro-table-middle {
+    overflow: auto;
+    margin-bottom: 1rem;
+}
 .octapro-table {
     width: 100%;
     tr {
         border-bottom: 1px solid #DBE0E5 !important;
 
         &:last-child {
-            border-bottom: none;
+            border-bottom: 1px solid transparent !important;
         }
         
         th {
@@ -192,6 +194,12 @@ input {
             font-size: 0.72rem;
             color: #29344A;
             background: rgba(244, 247, 250, 0.5);
+        }
+    }
+
+    thead {
+        tr th {
+            border-bottom: 1px solid #DBE0E5 !important;
         }
     }
 }
@@ -294,3 +302,67 @@ input {
       font-weight: bold;
     }
   }
+
+
+// jquiry UI CSS
+.ui-multiselect {
+    @include inputProps(auto);
+}
+.ui-multiselect-menu {
+    position: absolute;
+    @include inputProps(auto);
+    display: none;
+    max-width: fit-content;
+    width: 100% !important;
+
+    .ui-multiselect-header {
+        padding: 0.5rem 0;
+        border: 0;
+        background: none;
+
+        .ui-helper-reset {
+            display: flex;
+            li {
+                white-space: nowrap;
+                margin: 0;
+                margin-left: 1rem;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+
+            li a {
+                display: flex;
+                align-items: center;
+
+                span {
+                    margin-right: 0.25rem;
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+
+            .ui-multiselect-close {
+                display: none;
+            }
+        }
+    }
+
+    .ui-multiselect-checkboxes {
+        padding-left: 3px;
+        li {
+            padding-right: 0;
+            label {
+                border: 0;
+                background: none;
+            }
+
+            input[type="checkbox"] {
+                margin-right: 0.5rem;
+            }
+        }
+    }
+
+}

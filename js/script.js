@@ -3,10 +3,15 @@ $(function(){
     const url = 'https://mazarebadri.com/apitest/admin/admin_GetComplainList.php'
     const url2 = `${window.location.origin}/data.json`
 
-    $('#filterByCompanyArea').on("change", function(){
-        return
-        // $(this).val().map((d,i) => i !== $(this).val().length - 1 ? xyz += `${d},` : xyz += `${d}`)
-    })
+    $("#filterByCompanyArea").multiselect({ multiple: true }); 
+    $("#filterByServiceType").multiselect({ multiple: true }); 
+  
+        // $("form").bind("submit", function () { 
+        //     $("#selectResultID").html( 
+        //         "<b>Options selected : </b>"  
+        //         + $(this).serialize()); 
+        //     return false; 
+        // });
 
     // Get values from the form
     var searchKeyword = $('#tableSearch').val();
@@ -171,6 +176,22 @@ $(function(){
         console.log("filter by service type");
         serviceType = $(this).val().map(d => d);
         fetchAPI()
+    })
+
+    // navigation menu toggle JS
+    let toggleBtnToggled = false;
+    $(".octapro-menu-toggle").on("click", function(){
+        if(!toggleBtnToggled) {
+            $(".octapro-sidebar-container").css({"max-width": 0, "width":0})
+            $(".octapro-sidebar").fadeOut(100)
+            $(".octapro-header-container").css({"max-width": "100%"})
+            toggleBtnToggled = true;
+        } else {
+            $(".octapro-sidebar-container").css({"max-width": "", "width":""})
+            $(".octapro-sidebar").fadeIn(100)
+            $(".octapro-header-container").css({"max-width": ""})
+            toggleBtnToggled = false;
+        }
     })
 
 
